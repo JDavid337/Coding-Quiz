@@ -1,6 +1,35 @@
-const quizContainer = document.getElementById('quiz');
-const resultsContainer = document.getElementById('results');
-const submitButton = document.getElementById('submit');
+const start_btn = document.querySelector('.start_btn button');
+const info_box = document.querySelector('info_box');
+const exit_btn = info_box.querySelector('.buttons .quit');
+const continue_btn = info_box.querySelector('.buttons .restart');
+const quiz_box = info_box.querySelector(".quiz_box")
+
+start_btn.onclick = ()=>{
+    info_box.classList.add("activeInfo"); //show info box
+
+exit_btn.onclick = ()=>{
+    info_box.classList.remove("activeInfo"); //hide info box
+}
+
+continue_btn.onclick = ()=>{
+    info_box.classList.remove("activeInfo"); // hide info box
+    quiz_box.classList.remove("activeQuiz"); // show the quiz box
+
+let que_count = 0;
+
+
+function showQuestions(index){
+    const que_text = document.querySelector(".que_text");
+    let que_tag = '<span>' + questions[index].question + '</span>';
+    let option_tag = '<div class="option">' + questions[index].options[0] + '<span></span></div>'
+                    + '<div class="option">' + questions[index].options[1] + '<span></span></div>'
+                    + '<div class="option">' + questions[index].options[2] + '<span></span></div>'
+                    + '<div class="option">' + questions[index].options[3] + '<span></span></div>';
+    que_text.innerHTML = que_tag;
+    option_list.innerHTML = option_tag;
+}
+
+/*
 
 function buildQuiz(){}
 
